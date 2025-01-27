@@ -26,7 +26,7 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 function lys () {
     if (lock == 0) {
-        for (let index = 0; index <= 4; index++) {
+        for (let index = 0; index <= 8; index++) {
             let b = 0
             flicker = randint(0, 200)
             r1 = r - flicker
@@ -44,6 +44,7 @@ function lys () {
             strip.setPixelColor(index, neopixel.rgb(r1, g1, b1))
             strip.show()
             basic.pause(randint(0, 100))
+            strip.show()
         }
     } else {
         muggle()
@@ -56,18 +57,22 @@ input.onButtonPressed(Button.B, function () {
     Modtaget = 0
 })
 function muggle () {
-    for (let index = 0; index < 4; index++) {
-        for (let index = 0; index <= 4; index++) {
-            strip.setPixelColor(index, neopixel.rgb(0, 0, 20))
-            strip.show()
-            basic.pause(100)
-        }
-        for (let index = 0; index <= 4; index++) {
-            strip.setPixelColor(index, neopixel.rgb(0, 0, 0))
-            strip.show()
-            basic.pause(100)
-        }
+    for (let index = 0; index < 1; index++) {
+        strip.setPixelColor(0, neopixel.rgb(0, 0, 100))
+        strip.setPixelColor(1, neopixel.rgb(0, 0, 100))
+        strip.show()
+        basic.pause(2)
+        strip.setPixelColor(0, neopixel.rgb(200, 150, 0))
+        strip.setPixelColor(1, neopixel.rgb(200, 150, 0))
+        strip.show()
+        basic.pause(2)
+        strip.setPixelColor(0, neopixel.rgb(0, 0, 0))
+        strip.setPixelColor(1, neopixel.rgb(0, 0, 0))
+        strip.show()
+        basic.pause(2)
     }
+    Modtaget = 0
+    basic.pause(1000)
 }
 let b1 = 0
 let g1 = 0
@@ -80,7 +85,7 @@ let g = 0
 let r = 0
 let strip: neopixel.Strip = null
 radio.setGroup(17)
-strip = neopixel.create(DigitalPin.P2, 4, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P2, 8, NeoPixelMode.RGB)
 strip.clear()
 strip.show()
 r = 200
