@@ -46,10 +46,7 @@ function lys () {
             basic.pause(randint(0, 100))
         }
     } else {
-        strip.setPixelColor(0, neopixel.rgb(0, 0, 255))
-        strip.setPixelColor(1, neopixel.rgb(0, 0, 255))
-        strip.setPixelColor(2, neopixel.rgb(0, 0, 255))
-        strip.setPixelColor(3, neopixel.rgb(0, 0, 255))
+        muggle()
     }
 }
 input.onButtonPressed(Button.A, function () {
@@ -58,6 +55,20 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     Modtaget = 0
 })
+function muggle () {
+    for (let index = 0; index < 4; index++) {
+        for (let index = 0; index <= 4; index++) {
+            strip.setPixelColor(index, neopixel.rgb(0, 0, 20))
+            strip.show()
+            basic.pause(100)
+        }
+        for (let index = 0; index <= 4; index++) {
+            strip.setPixelColor(index, neopixel.rgb(0, 0, 0))
+            strip.show()
+            basic.pause(100)
+        }
+    }
+}
 let b1 = 0
 let g1 = 0
 let r1 = 0
